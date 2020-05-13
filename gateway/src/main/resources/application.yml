@@ -1,0 +1,26 @@
+server:
+  port: 8098
+
+spring:
+  application:
+    name: service-gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: service_consumer
+          uri: lb://service_consumer
+          predicates:
+            - path= /consumer/**
+          filters:
+            - StringPrefix=1
+    consul:
+      host: 192.168.80.110
+      port: 8500
+      discovery:
+        service-name: service-gateway
+
