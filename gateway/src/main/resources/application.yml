@@ -9,18 +9,37 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true
+          enabled: false
+          # 请求路径上的服务名配置为小写（因为服务注册的时候，向注册中心注册时将服务名转成大写的了）
           lower-case-service-id: true
       routes:
-        - id: service_consumer
-          uri: lb://service_consumer
+        - id: service-consumer
+          uri: lb://service-consumer
           predicates:
-            - path= /consumer/**
+            - Path=/consumer/**
           filters:
-            - StringPrefix=1
+            - StripPrefix=1
     consul:
-      host: 192.168.80.110
+      # 指定consul的ip地址和端口
+      host: 192.168.80.130
       port: 8500
       discovery:
-        service-name: service-gateway
+        # 指定服务版本信息
+        tags: version=1.0,auth=Mr.Kong
+        # 是否需要注册到consul，默认为true
+        register: true
+        # 注册的实例ID (唯一标志)
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}
+        # 服务名称
+        service-name: ${spring.application.name}
+        # 服务请求端口
+        port: ${server.port}
+        # 指定开启ip地址注册
+        prefer-ip-address: true
+        # 当前服务请求ip
+        ip-address: ${spring.cloud.client.ip-address}
+        # 指定consul心跳检测地址
+        health-check-url: http://${spring.cloud.client.ip-address}:${server.port}/actuator/health
+        # 指定consul心跳检测间隔
+        health-check-interval: 15s
 

@@ -1,21 +1,21 @@
-package com.api.consul.controller;
+package com.api.orderservice.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Description:
- *
- * @author Mr.Kong
- * @date 2020-05-13 23:21
+ * @Auther: Mr.Kong
+ * @Date: 2020/5/14 09:47
+ * @Description:
  */
 @RestController
 @RequestMapping("order")
 public class OrderController {
 
     @GetMapping("info")
-    public String getOrder(){
+    public String getOrder() {
         return "order";
     }
+
 }

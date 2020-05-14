@@ -10,10 +10,10 @@
     </parent>
 
     <groupId>com.api</groupId>
-    <artifactId>consul</artifactId>
+    <artifactId>order-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>consul</name>
-    <description>注册中心consul</description>
+    <name>order-service</name>
+    <description>order-service</description>
 
     <properties>
         <java.version>1.8</java.version>
