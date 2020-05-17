@@ -22,9 +22,9 @@
       * [4\.3\.4\.3 请求方法匹配](#4343-%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E5%8C%B9%E9%85%8D)
     * [4\.3\.5 Gateway熔断Hystrix](#435-gateway%E7%86%94%E6%96%ADhystrix)
     * [4\.3\.6 Gateway重试路由](#436-gateway%E9%87%8D%E8%AF%95%E8%B7%AF%E7%94%B1)
-    * [4\.3\.6 Gateway限流](#436-gateway%E9%99%90%E6%B5%81)
-    * [4\.3\.7 Gateway自定义Gatewayfilter](#437-gateway%E8%87%AA%E5%AE%9A%E4%B9%89gatewayfilter)
-    * [4\.3\.8 Gateway自定义GlobalFilter](#438-gateway%E8%87%AA%E5%AE%9A%E4%B9%89globalfilter)
+    * [4\.3\.7 Gateway限流](#437-gateway%E9%99%90%E6%B5%81)
+    * [4\.3\.8 Gateway自定义Gatewayfilter](#438-gateway%E8%87%AA%E5%AE%9A%E4%B9%89gatewayfilter)
+    * [4\.3\.9 Gateway自定义GlobalFilter](#439-gateway%E8%87%AA%E5%AE%9A%E4%B9%89globalfilter)
 
 # 1. 什么是Spring Cloud Gateway?
 
@@ -548,7 +548,7 @@ spring:
                 series: SERVER_ERROR
 ```
 
-### 4.3.6 Gateway限流
+### 4.3.7 Gateway限流
 
 引入maven依赖
 
@@ -642,7 +642,7 @@ public class GatewayApplication {
 
 基于上述配置，可以对请求基于ip的访问进行限流。
 
-### 4.3.7 Gateway自定义Gatewayfilter
+### 4.3.8 Gateway自定义Gatewayfilter
 
 Spring Cloud Gateway内置了过滤器，能够满足很多场景的需求。当然，也可以自定义过滤器。在Spring Cloud Gateway自定义过滤器，过滤器需要实现GatewayFilter和Ordered这两个接口。
 
@@ -720,7 +720,7 @@ public class GatewayApplication {
 }
 ```
 
-### 4.3.8 Gateway自定义GlobalFilter
+### 4.3.9 Gateway自定义GlobalFilter
 
 > Spring Cloud Gateway根据作用范围分为GatewayFilter和GlobalFilter，二者区别如下：
 >
